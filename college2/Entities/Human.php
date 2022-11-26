@@ -1,6 +1,6 @@
 <?php
 
-namespace College\Entities;
+namespace College2\Entities;
 
 use \DateTime;
 
