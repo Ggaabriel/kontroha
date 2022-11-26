@@ -1,0 +1,69 @@
+drop database if exists `college`;
+create database `college`;
+use `college`;
+
+create table `subjects` (
+	`id` int(11) unsigned auto_increment,
+	`name` varchar(50) not null,
+	`created_at` datetime not null default current_timestamp, 
+	`updated_at` datetime default null,
+	`deleted_at` datetime default null,
+	primary key (`id`)	
+);
+
+create table `teachers` (
+	`id` int(11) unsigned auto_increment,
+	`fname` varchar(12) not null,
+	`mname` varchar(20) default null,
+	`lname` varchar(50) not null,
+	`gender` enum('м', 'ж') not null,
+	`birth_date` date not null,
+	`state` enum('в отпуске', 'уволен', 'работает') not null default 'работает',
+	`created_at` datetime not null default current_timestamp, 
+	`updated_at` datetime default null,
+	`deleted_at` datetime default null,
+	primary key (`id`)	
+);
+
+create table `subjects_teachers` (
+	`id` int(11) unsigned auto_increment,
+	`subject_id` int(11) unsigned not null,
+	`teacher_id` int(11) unsigned not null,
+	primary key (`id`),
+	foreign key (`subject_id`) references `subjects` (`id`),
+	foreign key (`teacher_id`) references `teachers` (`id`)
+);
+
+create table `groups` (
+	`id` int(11) unsigned auto_increment,
+	`name` varchar(10) not null,
+	`curator_id` int(11) unsigned not null,
+	`created_at` datetime not null default current_timestamp, 
+	`updated_at` datetime default null,
+	`deleted_at` datetime default null,
+	primary key (`id`),
+	foreign key (`curator_id`) references `teachers` (`id`)
+);
+
+create table `students` (
+	`id` int(11) unsigned auto_increment,
+	`fname` varchar(12) not null,
+	`mname` varchar(20) default null,
+	`lname` varchar(50) not null,
+	`age` int(2) not null,
+	`gender` enum('м', 'ж') not null,
+	`birth_date` date not null,
+	`assigned_date` date not null,
+	`group_id` int(11) unsigned not null,
+	`state` enum('учится', 'отчислен', 'в отпуске') not null default 'учится',
+	`is_headman` tinyint(1) default false,
+	`created_at` datetime not null default current_timestamp, 
+	`updated_at` datetime default null,
+	`deleted_at` datetime default null,
+	primary key (`id`),
+	foreign key (`group_id`) references `groups` (`id`)
+);
+
+alter table `groups` add unique (`name`);
+alter table `students` drop column `age`;
+alter table `students` drop column `assigned_date`;
