@@ -8,8 +8,9 @@ spl_autoload_register(function ($class) {
 });
 
 
-$dibil = new kontroha\NKSMOW\Student('danich','tihon',new DateTime('2004-02-13'),'man');
-
+$dibil = new NKSMOW\Student('danich','tihon',new DateTime('2004-02-13'),'man');
 echo $dibil->getFirstName();
+
+$isp22 = new NKSMOW\Group('isp22',new Leader('Max','Zverev',new DateTime('1980-07-19'),'man'),new DateTime('2022-28-11'),)
 
 
