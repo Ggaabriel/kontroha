@@ -4,7 +4,7 @@ namespace NKSMOW;
 use \DateTime;
 
 
-class Group implements NKSMOW\GroupInterface{
+class Group implements \NKSMOW\GroupInterface{
     private array $studentsArray = [];
     public function __construct(
         private string $groupName,
@@ -15,7 +15,7 @@ class Group implements NKSMOW\GroupInterface{
 
     
     public function addStudent(Student $newStudent) : void{
-        $this->$studentsArray[] = $newStudent;
+        $this->studentsArray[] = $newStudent;
     }
     public function getStudents() : array{
         return $this->studentsArray;

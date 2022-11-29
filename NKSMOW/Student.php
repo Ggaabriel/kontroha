@@ -10,7 +10,7 @@ class Student extends \college2\Entities\Human{
         $birthDate,
         $gender,
         // private Speciality $speciality,
-        // private Group $group,
+        private Group $group,
         // private Datetime $spawnYear
 
     ){

@@ -8,9 +8,23 @@ spl_autoload_register(function ($class) {
 });
 
 
-$dibil = new NKSMOW\Student('danich','tihon',new DateTime('2004-02-13'),'man');
-echo $dibil->getFirstName();
+// $dibil = new NKSMOW\Student('danich','tihon',new DateTime('2004-02-13'),'man');
+// echo $dibil->getFirstName();
 
-$isp22 = new NKSMOW\Group('isp22',new Leader('Max','Zverev',new DateTime('1980-07-19'),'man'),new DateTime('2022-28-11'),)
+$isp22 = new NKSMOW\Group(
+    'isp22',
+    new NKSMOW\Leader('Max','Zverev',new DateTime('1980-07-19'),'man'),
+    new DateTime('2022-11-28'),
+    new NKSMOW\Speciality('programmer',4 , 25 , 10 , 'Vishka')
+);
+
+vardump($isp22);
+
+
+function vardump($var) {
+    echo '<pre>';
+    var_dump($var);
+    echo '</pre>';
+}
 
 

@@ -1,4 +1,5 @@
-<?phpnamespace NKSMOW;
+<?php
+namespace NKSMOW;
 
 use \DateTime;
 
