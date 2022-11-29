@@ -4,9 +4,9 @@ namespace NKSMOW;
 use \DateTime;
 
 interface SpecialityInterface{
-    // public function getName() : string;
+    public function getName() : string;
 
-    // public function getSrokUchebi() : int;
+    public function getSrokUchebi() : int;
 
     // public function getBezPlatno() : int;
 
@@ -18,5 +18,9 @@ interface SpecialityInterface{
 
     // public function skokaVsegoMest() : int;
     
-    // public function uchebaLVL() : string;
+    public function getUchebaLVL() : string;
 }
+
+//я не хочу реализововывать методы в коментариях :(
+    //(и не буду)
+        //:)
